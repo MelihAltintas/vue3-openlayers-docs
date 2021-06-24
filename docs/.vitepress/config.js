@@ -5,14 +5,17 @@ module.exports = {
         displayAllHeaders: true,
         nav: [
             {
-                text: 'Github',
-                link: 'https://github.com/vuejs/vitepress/releases'
+                text: 'Github [Melih Altıntaş]',
+                link: 'https://github.com/MelihAltintas/vue3-openlayers'
             }
         ],
         sidebar: {
             '/': [{
                 text: 'Introduction',
                 link: '/'
+            },{
+                text: 'Demo',
+                link: '/demo/'
             }, {
                 text: 'Components',
                 collapsable: false,
