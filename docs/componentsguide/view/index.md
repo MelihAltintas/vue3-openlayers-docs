@@ -88,6 +88,7 @@ import ViewDemo from "@demos/ViewDemo.vue"
 <ClientOnly>
 <ViewDemo />
 </ClientOnly>
+
 ## Properties
 
 # center

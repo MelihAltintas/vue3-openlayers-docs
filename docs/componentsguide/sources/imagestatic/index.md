@@ -65,6 +65,7 @@ import ImageLayerDemo from "@demos/ImageLayerDemo.vue"
 <ClientOnly>
 <ImageLayerDemo />
 </ClientOnly>
+
 ## Properties
 
 

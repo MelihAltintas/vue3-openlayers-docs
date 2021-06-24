@@ -1,9 +1,9 @@
 <template>
-<select v-model="selected">
+<select v-model="selectedXyzUrl">
     <option value="https://{a-c}.tile.openstreetmap.org/{z}/{x}/{y}.png">OSM</option>
     <option value="https://mt1.google.com/vt/lyrs=s&x={x}&y={y}&z={z}">GOOGLE</option>
 </select>
-{{selected}}
+{{selectedXyzUrl}}
 
 <ol-map ref="map" :loadTilesWhileAnimating="true" :loadTilesWhileInteracting="true" style="height:800px">
 
@@ -25,11 +25,15 @@
     <ol-zoomtoextent-control :extent="[23.906,42.812,46.934,34.597]" tipLabel="Fit to Turkey" />
 
     <ol-tile-layer>
-        <ol-source-xyz :url="selected" />
+        <ol-source-xyz :url="selectedXyzUrl" />
     </ol-tile-layer>
 
+    <ol-interaction-select @select="featureSelected" :condition="selectCondition">
+
+    </ol-interaction-select>
+
     <ol-vector-layer>
-        <ol-source-vector url="https://raw.githubusercontent.com/MelihAltintas/vue3-openlayers/main/docs/citytopo.json" :format="topoJSON" :projection="projection">
+        <ol-source-vector url="https://raw.githubusercontent.com/alpers/Turkey-Maps-GeoJSON/master/tr-cities-kktc.json" :format="geoJson" :projection="projection">
 
         </ol-source-vector>
         <ol-style>
@@ -37,24 +41,35 @@
         </ol-style>
     </ol-vector-layer>
 
+    <ol-vector-layer>
+        <ol-source-vector url="https://raw.githubusercontent.com/alpers/Turkey-Maps-GeoJSON/master/tr-cities.json" :format="geoJson" :projection="projection">
+
+        </ol-source-vector>
+        <ol-style>
+            <ol-style-stroke color="red" :width="2"></ol-style-stroke>
+              <ol-style-fill color="rgba(0,0,0,0.3)"></ol-style-fill>
+        </ol-style>
+    </ol-vector-layer>
+
     <ol-overlay :position="center">
         <template v-slot="slotProps">
             <div class="overlay-content">
-                Welcome to Turkey
+                Welcome to Turkey {{slotProps}}
             </div>
         </template>
     </ol-overlay>
 
-
-
 </ol-map>
+
+<h5>
+    SELECTED CITY NAME : {{selectedCityName}}
+</h5>
 </template>
 
 <script>
 import {
     ref,
-    inject,
-    onMounted
+    inject
 } from 'vue'
 
 export default {
@@ -65,17 +80,36 @@ export default {
         const rotation = ref(0)
 
         const format = inject('ol-format');
-        console.log(format)
-        const topoJSON = new format.TopoJSON();
-        const selected = ref('https://{a-c}.tile.openstreetmap.org/{z}/{x}/{y}.png')
+
+        const geoJson = new format.GeoJSON();
+        const selectedXyzUrl = ref('https://{a-c}.tile.openstreetmap.org/{z}/{x}/{y}.png')
+
+        const selectConditions = inject('ol-selectconditions')
+
+        const selectCondition = selectConditions.pointerMove;
+
+        const selectedCityName = ref('')
+
+        const featureSelected = (event) => {
+            if (event.selected.length == 1) {
+                
+                selectedCityName.value = event.selected[0].values_.name;
+            } else {
+                selectedCityName.value = '';
+            }
+
+        }
 
         return {
             center,
             projection,
             zoom,
             rotation,
-            topoJSON,
-            selected
+            geoJson,
+            selectedXyzUrl,
+            featureSelected,
+            selectCondition,
+            selectedCityName
         }
     },
 }
