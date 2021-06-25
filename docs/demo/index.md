@@ -38,7 +38,11 @@ import Demo from "@demos/Demo.vue"
     </ol-tile-layer>
 
     <ol-interaction-select @select="featureSelected" :condition="selectCondition">
-
+        <ol-style>
+            <ol-style-stroke color="green" :width="10"></ol-style-stroke>
+             <ol-style-fill color="rgba(255,255,255,0.5)"></ol-style-fill>
+            <ol-style-icon :src="markerIcon" :scale="0.2"></ol-style-icon>
+        </ol-style>
     </ol-interaction-select>
 
     <ol-vector-layer>
@@ -47,6 +51,7 @@ import Demo from "@demos/Demo.vue"
         </ol-source-vector>
         <ol-style>
             <ol-style-stroke color="red" :width="2"></ol-style-stroke>
+             <ol-style-fill color="rgba(0,0,0,0.3)"></ol-style-fill>
             <ol-style-icon :src="markerIcon" :scale="0.1"></ol-style-icon>
         </ol-style>
     </ol-vector-layer>
