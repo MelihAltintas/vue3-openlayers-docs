@@ -60,19 +60,17 @@ import Demo from "@demos/Demo.vue"
         </ol-style>
     </ol-vector-layer>
 
-    <ol-overlay :position="center">
+
+    <ol-overlay :position="selectedCityPosition" v-if="selectedCityName !=''" >
         <template v-slot="slotProps">
             <div class="overlay-content">
-                Welcome to Turkey {{slotProps}}
+                {{selectedCityName}} {{slotProps}}
             </div>
         </template>
     </ol-overlay>
 
 </ol-map>
 
-<h5>
-    SELECTED CITY NAME : {{selectedCityName}}
-</h5>
 </template>
 ```
 
@@ -95,14 +93,18 @@ export default {
         const selectedXyzUrl = ref('https://{a-c}.tile.openstreetmap.org/{z}/{x}/{y}.png')
 
         const selectConditions = inject('ol-selectconditions')
-
+        console.log(selectConditions)
         const selectCondition = selectConditions.pointerMove;
 
         const selectedCityName = ref('')
+        const selectedCityPosition = ref([])
+
+        const extent = inject('ol-extent');
 
         const featureSelected = (event) => {
             if (event.selected.length == 1) {
-                
+
+                selectedCityPosition.value =  extent.getCenter(event.selected[0].getGeometry().extent_)
                 selectedCityName.value = event.selected[0].values_.name;
             } else {
                 selectedCityName.value = '';
@@ -119,10 +121,10 @@ export default {
             selectedXyzUrl,
             featureSelected,
             selectCondition,
-            selectedCityName
+            selectedCityName,
+            selectedCityPosition
         }
     },
 }
-</script>
 ```
 
