@@ -1,4 +1,5 @@
 
+
 ## Installation
 
 Vue3 OpenLayers works with Vue.js **^3.0** and OpenLayers **^6.5.0**
@@ -27,3 +28,5 @@ app.use(OpenLayersMap)
 
 app.mount('#app')
 ``` 
+
+

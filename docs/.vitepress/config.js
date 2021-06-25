@@ -2,20 +2,21 @@ module.exports = {
     title: 'Vue3 OpenLayers',
     description: 'Vue3 OpenLayers',
     themeConfig: {
-        displayAllHeaders: true,
+        repo: 'MelihAltintas/vue3-openlayers',
+        docsDir: 'docs',
         nav: [
-            {
-                text: 'Github [Melih Altıntaş]',
-                link: 'https://github.com/MelihAltintas/vue3-openlayers'
-            }
         ],
+
         sidebar: {
             '/': [{
                 text: 'Introduction',
                 link: '/'
-            },{
+            }, {
                 text: 'Demo',
                 link: '/demo/'
+            }, {
+                text: 'Github',
+                link: 'https://github.com/MelihAltintas/vue3-openlayers',
             }, {
                 text: 'Components',
                 collapsable: false,
