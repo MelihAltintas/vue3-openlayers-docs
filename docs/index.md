@@ -1,4 +1,9 @@
-
+---
+head:
+  - - meta
+    - name: google-site-verification
+      content: sO5Ac-6bG_0zPh8Kip5pMwBlL6gLH5Vx-NGGaEchKVE
+---
 
 ## Installation
 
