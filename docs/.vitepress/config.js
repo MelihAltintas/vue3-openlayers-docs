@@ -4,8 +4,7 @@ module.exports = {
     themeConfig: {
         repo: 'MelihAltintas/vue3-openlayers',
         docsDir: 'docs',
-        nav: [
-        ],
+        nav: [],
 
         sidebar: {
             '/': [{
@@ -14,9 +13,6 @@ module.exports = {
             }, {
                 text: 'Demo',
                 link: '/demo/'
-            }, {
-                text: 'Github',
-                link: 'https://github.com/MelihAltintas/vue3-openlayers',
             }, {
                 text: 'Components',
                 collapsable: false,
