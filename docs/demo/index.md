@@ -40,8 +40,8 @@ import Demo from "@demos/Demo.vue"
     <ol-interaction-select @select="featureSelected" :condition="selectCondition">
         <ol-style>
             <ol-style-stroke color="green" :width="10"></ol-style-stroke>
-             <ol-style-fill color="rgba(255,255,255,0.5)"></ol-style-fill>
-            <ol-style-icon :src="markerIcon" :scale="0.2"></ol-style-icon>
+            <ol-style-fill color="rgba(255,255,255,0.5)"></ol-style-fill>
+            <ol-style-icon :src="markerIcon" :scale="0.1"></ol-style-icon>
         </ol-style>
     </ol-interaction-select>
 
@@ -51,7 +51,7 @@ import Demo from "@demos/Demo.vue"
         </ol-source-vector>
         <ol-style>
             <ol-style-stroke color="red" :width="2"></ol-style-stroke>
-             <ol-style-fill color="rgba(0,0,0,0.3)"></ol-style-fill>
+            <ol-style-fill color="rgba(0,0,0,0.3)"></ol-style-fill>
             <ol-style-icon :src="markerIcon" :scale="0.1"></ol-style-icon>
         </ol-style>
     </ol-vector-layer>
@@ -63,10 +63,37 @@ import Demo from "@demos/Demo.vue"
         <ol-style>
             <ol-style-stroke color="red" :width="2"></ol-style-stroke>
             <ol-style-fill color="rgba(0,0,0,0.3)"></ol-style-fill>
-            <ol-style-icon :src="markerIcon" :scale="0.08"></ol-style-icon>
+            <ol-style-icon :src="markerIcon" :scale="0.1"></ol-style-icon>
         </ol-style>
     </ol-vector-layer>
 
+    <ol-vector-layer>
+
+        <ol-source-cluster :distance="100">
+
+            <ol-source-vector>
+                <ol-feature v-for="index in 1000" :key="index">
+                    <ol-geom-point :coordinates="[getRandomInRange(24,45),getRandomInRange(35,41)]"></ol-geom-point>
+                </ol-feature>
+            </ol-source-vector>
+
+        </ol-source-cluster>
+
+        <ol-style :overrideStyleFunction="overrideStyleFunction">
+            <ol-style-stroke color="red" :width="2"></ol-style-stroke>
+            <ol-style-fill color="rgba(0,0,0,0.3)"></ol-style-fill>
+
+            <ol-style-circle :radius="15">
+                <ol-style-fill color="#3399CC"></ol-style-fill>
+                <ol-style-stroke color="#fff" :width="1"></ol-style-stroke>
+
+            </ol-style-circle>
+            <ol-style-text>
+                <ol-style-fill color="#fff"></ol-style-fill>
+            </ol-style-text>
+        </ol-style>
+
+    </ol-vector-layer>
 
     <ol-overlay :position="selectedCityPosition" v-if="selectedCityName !=''">
         <template v-slot="slotProps">
@@ -77,7 +104,6 @@ import Demo from "@demos/Demo.vue"
     </ol-overlay>
 
 </ol-map>
-
 </template>
 ```
 
@@ -101,7 +127,7 @@ export default {
         const selectedXyzUrl = ref('https://{a-c}.tile.openstreetmap.org/{z}/{x}/{y}.png')
 
         const selectConditions = inject('ol-selectconditions')
-        console.log(selectConditions)
+
         const selectCondition = selectConditions.pointerMove;
 
         const selectedCityName = ref('')
@@ -112,11 +138,24 @@ export default {
         const featureSelected = (event) => {
             if (event.selected.length == 1) {
 
-                selectedCityPosition.value =  extent.getCenter(event.selected[0].getGeometry().extent_)
+                selectedCityPosition.value = extent.getCenter(event.selected[0].getGeometry().extent_)
                 selectedCityName.value = event.selected[0].values_.name;
             } else {
                 selectedCityName.value = '';
             }
+
+        }
+
+        const overrideStyleFunction = (feature, style) => {
+ 
+            let clusteredFeatures = feature.get('features');
+            let size = clusteredFeatures.length;
+
+            style.getText().setText(size.toString());
+        }
+
+        const getRandomInRange = (from, to, fixed) => {
+            return (Math.random() * (to - from) + from).toFixed(fixed) * 1;
 
         }
 
@@ -131,7 +170,10 @@ export default {
             selectCondition,
             selectedCityName,
             selectedCityPosition,
-            markerIcon
+            markerIcon,
+            overrideStyleFunction,
+            getRandomInRange
+
         }
     },
 }
