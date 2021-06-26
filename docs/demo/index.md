@@ -69,11 +69,11 @@ import Demo from "@demos/Demo.vue"
 
     <ol-vector-layer>
 
-        <ol-source-cluster :distance="100">
+        <ol-source-cluster :distance="40">
 
             <ol-source-vector>
                 <ol-feature v-for="index in 1000" :key="index">
-                    <ol-geom-point :coordinates="[getRandomInRange(24,45),getRandomInRange(35,41)]"></ol-geom-point>
+                    <ol-geom-point :coordinates="[getRandomInRange(24,45,3),getRandomInRange(35,41,3)]"></ol-geom-point>
                 </ol-feature>
             </ol-source-vector>
 
@@ -83,7 +83,7 @@ import Demo from "@demos/Demo.vue"
             <ol-style-stroke color="red" :width="2"></ol-style-stroke>
             <ol-style-fill color="rgba(0,0,0,0.3)"></ol-style-fill>
 
-            <ol-style-circle :radius="15">
+            <ol-style-circle :radius="10">
                 <ol-style-fill color="#3399CC"></ol-style-fill>
                 <ol-style-stroke color="#fff" :width="1"></ol-style-stroke>
 
@@ -152,6 +152,7 @@ export default {
             let size = clusteredFeatures.length;
 
             style.getText().setText(size.toString());
+ 
         }
 
         const getRandomInRange = (from, to, fixed) => {
