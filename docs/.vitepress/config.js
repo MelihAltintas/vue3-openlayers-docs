@@ -62,6 +62,10 @@ module.exports = {
                             {
                                 text: 'ol-source-vector',
                                 link: '/componentsguide/sources/vector/'
+                            },
+                            {
+                                text: 'ol-source-cluster',
+                                link: '/componentsguide/sources/cluster/'
                             }
                         ]
                     },
