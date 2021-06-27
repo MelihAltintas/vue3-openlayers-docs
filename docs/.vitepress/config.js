@@ -54,6 +54,9 @@ module.exports = {
                             }, {
                                 text: 'ol-source-xyz',
                                 link: '/componentsguide/sources/xyz/'
+                            }, {
+                                text: 'ol-source-bingmaps',
+                                link: '/componentsguide/sources/bing/'
                             },
                             {
                                 text: 'ol-source-wmts',
