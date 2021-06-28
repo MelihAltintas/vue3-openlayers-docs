@@ -97,6 +97,31 @@ module.exports = {
                                 link: '/componentsguide/geometries/geommultipolygon/'
                             }
                         ]
+                    }, {
+                        text: 'Styles',
+                        children: [{
+                                text: 'ol-style',
+                                link: '/componentsguide/styles/style/'
+                            },
+                            {
+                                text: 'ol-style-circle',
+                                link: '/componentsguide/styles/circle/'
+                            }, {
+                                text: 'ol-style-fill',
+                                link: '/componentsguide/styles/fill/'
+                            },
+                            {
+                                text: 'ol-style-icon',
+                                link: '/componentsguide/styles/icon/'
+                            },
+                            {
+                                text: 'ol-style-stroke',
+                                link: '/componentsguide/styles/stroke/'
+                            }, {
+                                text: 'ol-style-text',
+                                link: '/componentsguide/styles/text/'
+                            }
+                        ]
                     },
                     {
                         text: 'Map Controls',
