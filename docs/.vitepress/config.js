@@ -127,7 +127,7 @@ module.exports = {
                         text: 'Map Controls',
                         link: '/componentsguide/mapcontrols/'
 
-                    }
+                    }       
                 ]
             }, ]
 
