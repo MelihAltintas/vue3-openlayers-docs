@@ -25,6 +25,9 @@ module.exports = {
                     }, {
                         text: 'ol-overlay',
                         link: '/componentsguide/overlay/'
+                    },{
+                        text: 'ol-geolocation',
+                        link: '/componentsguide/geolocation/'
                     },
                     {
                         text: 'Layers',
