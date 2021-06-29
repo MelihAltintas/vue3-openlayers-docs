@@ -105,3 +105,12 @@ Tracking options. See [PositionOptions](https://www.w3.org/TR/geolocation-API/#p
 - **Default**: `EPSG:3857`
 
 Projection of the current position.
+
+
+## Emits
+- `positionChanged`
+- `speedChanged`
+- `headingChanged`
+- `altitudeChanged`
+- `altitudeAccuracyChanged`
+- `accuracyGeometryChanged`
