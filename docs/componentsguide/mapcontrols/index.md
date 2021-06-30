@@ -14,7 +14,7 @@ A control is a visible widget with a DOM element in a fixed position on the scre
 - `ol-zoomslider-control`
 - `ol-zoomtoextent-control`
 
-## Usage
+# Usage
 
 ```html
 <template>
@@ -106,38 +106,3 @@ import MapControlDemo from "@demos/MapControlDemo.vue"
 <MapControlDemo />
 </ClientOnly>
 
-## AttributionControl Properties
-
-https://openlayers.org/en/latest/apidoc/module-ol_control_Attribution-Attribution.html
-
-## FullScreenControl Properties
-
-https://openlayers.org/en/latest/apidoc/module-ol_control_FullScreen-FullScreen.html
-
-## MousePosition Properties
-
-https://openlayers.org/en/latest/apidoc/module-ol_control_MousePosition-MousePosition.html
-
-## OverviewMapControl Properties
-
-https://openlayers.org/en/latest/apidoc/module-ol_control_OverviewMap-OverviewMap.html
-
-## RotateControl Properties
-
-https://openlayers.org/en/latest/apidoc/module-ol_control_Rotate-Rotate.html
-
-## ScaleLineControl Properties
-
-https://openlayers.org/en/latest/apidoc/module-ol_control_ScaleLine-ScaleLine.html
-
-## ZoomSliderControl Properties
-
-https://openlayers.org/en/latest/apidoc/module-ol_control_ZoomSlider-ZoomSlider.html
-
-## ZoomToExtentControl Properties
-
-https://openlayers.org/en/latest/apidoc/module-ol_control_ZoomToExtent-ZoomToExtent.html
-
-## ZoomControl Properties
-
-https://openlayers.org/en/latest/apidoc/module-ol_control_Zoom-Zoom.html

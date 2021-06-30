@@ -128,10 +128,39 @@ module.exports = {
                     },
                     {
                         text: 'Map Controls',
-                        link: '/componentsguide/mapcontrols/',
                         children: [{
+                            text: 'demo',
+                            link: '/componentsguide/mapcontrols/'
+                        },{
                             text: 'ol-context-menu',
                             link: '/componentsguide/mapcontrols/contextmenu/'
+                        },{
+                            text: 'ol-attribution-control',
+                            link: '/componentsguide/mapcontrols/attribution/'
+                        },{
+                            text: 'ol-fullscreen-control',
+                            link: '/componentsguide/mapcontrols/fullscreen/'
+                        },{
+                            text: 'ol-mouseposition-control',
+                            link: '/componentsguide/mapcontrols/mouseposition/'
+                        },{
+                            text: 'ol-overviewmap-control',
+                            link: '/componentsguide/mapcontrols/overviewmap/'
+                        },{
+                            text: 'ol-rotate-control',
+                            link: '/componentsguide/mapcontrols/rotate/'
+                        },{
+                            text: 'ol-scaleline-control',
+                            link: '/componentsguide/mapcontrols/scaleline/'
+                        },{
+                            text: 'ol-zoom-control',
+                            link: '/componentsguide/mapcontrols/zoom/'
+                        },{
+                            text: 'ol-zoomslider-control',
+                            link: '/componentsguide/mapcontrols/zoomslider/'
+                        },{
+                            text: 'ol-zoomtoextent-control',
+                            link: '/componentsguide/mapcontrols/zoomtoextent/'
                         }]
                     }       
                 ]
