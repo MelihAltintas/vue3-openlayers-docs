@@ -128,8 +128,11 @@ module.exports = {
                     },
                     {
                         text: 'Map Controls',
-                        link: '/componentsguide/mapcontrols/'
-
+                        link: '/componentsguide/mapcontrols/',
+                        children: [{
+                            text: 'ol-context-menu',
+                            link: '/componentsguide/mapcontrols/contextmenu/'
+                        }]
                     }       
                 ]
             }, ]
