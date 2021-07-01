@@ -116,13 +116,13 @@ export default {
     setup() {
         const center = ref([34, 39.13])
         const projection = ref('EPSG:4326')
-        const zoom = ref(6.8)
+        const zoom = ref(6)
         const rotation = ref(0)
 
         const format = inject('ol-format');
 
         const geoJson = new format.GeoJSON();
-        const selectedXyzUrl = ref('https://{a-c}.tile.openstreetmap.org/{z}/{x}/{y}.png')
+        const selectedXyzUrl = ref('https://c.tile.jawg.io/jawg-dark/{z}/{x}/{y}.png?access-token=87PWIbRaZAGNmYDjlYsLkeTVJpQeCfl2Y61mcHopxXqSdxXExoTLEv7dwqBwSWuJ')
 
         const selectConditions = inject('ol-selectconditions')
 
