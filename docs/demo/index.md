@@ -31,6 +31,8 @@ import Demo from "@demos/Demo.vue"
     <ol-zoomslider-control />
     <ol-zoomtoextent-control :extent="[23.906,42.812,46.934,34.597]" tipLabel="Fit to Turkey" />
 
+    <ol-context-menu :items="contextMenuItems" />
+
     <ol-tile-layer>
         <ol-source-xyz :url="selectedXyzUrl" />
     </ol-tile-layer>
@@ -55,16 +57,14 @@ import Demo from "@demos/Demo.vue"
     </ol-vector-layer>
 
     <ol-vector-layer>
-        <ol-source-cluster :distance="40">
-            <ol-source-vector url="https://raw.githubusercontent.com/alpers/Turkey-Maps-GeoJSON/master/tr-cities-airports.json" :format="geoJson" :projection="projection">
+        <ol-source-vector url="https://raw.githubusercontent.com/alpers/Turkey-Maps-GeoJSON/master/tr-cities-airports.json" :format="geoJson" :projection="projection">
 
-            </ol-source-vector>
+        </ol-source-vector>
 
-        </ol-source-cluster>
         <ol-style>
             <ol-style-stroke color="red" :width="2"></ol-style-stroke>
             <ol-style-fill color="rgba(255,255,255,0.1)"></ol-style-fill>
-            
+
         </ol-style>
     </ol-vector-layer>
 
@@ -72,7 +72,7 @@ import Demo from "@demos/Demo.vue"
 
         <ol-source-cluster :distance="40">
 
-            <ol-source-vector>
+            <ol-source-vector ref="vectorsource">
                 <ol-feature v-for="index in 1000" :key="index">
                     <ol-geom-point :coordinates="[getRandomInRange(24,45,3),getRandomInRange(35,41,3)]"></ol-geom-point>
                 </ol-feature>
@@ -130,6 +130,36 @@ export default {
 
         const extent = inject('ol-extent');
 
+        const Feature = inject('ol-feature')
+        const Geom = inject('ol-geom')
+
+        const contextMenuItems = ref([])
+        const vectorsource =ref(null)
+
+        contextMenuItems.value = [{
+                text: 'Center map here',
+                classname: 'some-style-class', // add some CSS rules
+                callback: (val) => {
+                    view.value.setCenter(val.coordinate)
+
+                } // `center` is your callback function
+            },
+            {
+                text: 'Add a Marker',
+                classname: 'some-style-class', // you can add this icon with a CSS class
+                // instead of `icon` property (see next line)
+                icon: markerIcon, // this can be relative or absolute
+                callback: (val) => {
+                    console.log(val)
+                    let feature = new Feature({
+                        geometry: new Geom.Point(val.coordinate),
+                    });
+                    vectorsource.value.source.addFeature(feature)
+                }
+            },
+            '-' // this is a separator
+        ]
+
         const featureSelected = (event) => {
             if (event.selected.length == 1) {
 
@@ -168,7 +198,9 @@ export default {
             selectedCityPosition,
             markerIcon,
             overrideStyleFunction,
-            getRandomInRange
+            getRandomInRange,
+            contextMenuItems,
+            vectorsource
 
         }
     },
