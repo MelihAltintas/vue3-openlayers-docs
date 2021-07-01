@@ -59,27 +59,25 @@
         </ol-style>
     </ol-vector-layer>
 
-    <ol-vector-layer>
+    <ol-animated-clusterlayer :animationDuration="500" :distance="40">
 
-        <ol-source-cluster :distance="40">
+        <ol-source-vector ref="vectorsource">
+            <ol-feature v-for="index in 1000" :key="index">
+                <ol-geom-point :coordinates="[getRandomInRange(24,45,3),getRandomInRange(35,41,3)]"></ol-geom-point>
+            </ol-feature>
+        </ol-source-vector>
 
-            <ol-source-vector ref="vectorsource">
-                <ol-feature v-for="index in 1000" :key="index">
-                    <ol-geom-point :coordinates="[getRandomInRange(24,45,3),getRandomInRange(35,41,3)]"></ol-geom-point>
-                </ol-feature>
-            </ol-source-vector>
-
-        </ol-source-cluster>
         <ol-style :overrideStyleFunction="overrideStyleFunction">
             <ol-style-stroke color="red" :width="2"></ol-style-stroke>
             <ol-style-fill color="rgba(255,255,255,0.1)"></ol-style-fill>
             <ol-style-icon :src="markerIcon" :scale="0.08"></ol-style-icon>
+
             <ol-style-text>
                 <ol-style-fill color="blue"></ol-style-fill>
             </ol-style-text>
         </ol-style>
 
-    </ol-vector-layer>
+    </ol-animated-clusterlayer>
 
     <ol-overlay :position="selectedCityPosition" v-if="selectedCityName !=''">
         <template v-slot="slotProps">
