@@ -125,7 +125,7 @@ export default {
 
         const contextMenuItems = ref([])
         const vectorsource = ref(null)
-
+        const view = ref(null);
         contextMenuItems.value = [{
                 text: 'Center map here',
                 classname: 'some-style-class', // add some CSS rules
@@ -190,7 +190,8 @@ export default {
             overrideStyleFunction,
             getRandomInRange,
             contextMenuItems,
-            vectorsource
+            vectorsource,
+            view
 
         }
     },
