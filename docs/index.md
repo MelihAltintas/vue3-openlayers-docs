@@ -7,7 +7,7 @@ head:
 
 ## Installation
 
-Vue3 OpenLayers works with Vue.js **^3.0** and OpenLayers **^6.5.0**
+Vue3 OpenLayers works with Vue.js **^3.0** and OpenLayers **^6.6.1**
 
 # NPM
 

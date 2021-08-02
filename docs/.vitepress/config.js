@@ -25,7 +25,7 @@ module.exports = {
                     }, {
                         text: 'ol-overlay',
                         link: '/componentsguide/overlay/'
-                    },{
+                    }, {
                         text: 'ol-geolocation',
                         link: '/componentsguide/geolocation/'
                     },
@@ -125,44 +125,63 @@ module.exports = {
                                 link: '/componentsguide/styles/text/'
                             }
                         ]
+                    }, {
+                        text: 'Interactions',
+                        children: [{
+                                text: 'ol-interaction-select',
+                                link: '/componentsguide/interactions/select/'
+                            },
+                            {
+                                text: 'ol-interaction-draw',
+                                link: '/componentsguide/interactions/draw/'
+                            }, {
+                                text: 'ol-interaction-modify',
+                                link: '/componentsguide/interactions/modify/'
+                            },
+                            {
+                                text: 'ol-interaction-snap',
+                                link: '/componentsguide/interactions/snap/'
+                            },
+                      
+                        ]
                     },
                     {
                         text: 'Map Controls',
                         children: [{
                             text: 'demo',
                             link: '/componentsguide/mapcontrols/'
-                        },{
+                        }, {
                             text: 'ol-context-menu',
                             link: '/componentsguide/mapcontrols/contextmenu/'
-                        },{
+                        }, {
                             text: 'ol-attribution-control',
                             link: '/componentsguide/mapcontrols/attribution/'
-                        },{
+                        }, {
                             text: 'ol-fullscreen-control',
                             link: '/componentsguide/mapcontrols/fullscreen/'
-                        },{
+                        }, {
                             text: 'ol-mouseposition-control',
                             link: '/componentsguide/mapcontrols/mouseposition/'
-                        },{
+                        }, {
                             text: 'ol-overviewmap-control',
                             link: '/componentsguide/mapcontrols/overviewmap/'
-                        },{
+                        }, {
                             text: 'ol-rotate-control',
                             link: '/componentsguide/mapcontrols/rotate/'
-                        },{
+                        }, {
                             text: 'ol-scaleline-control',
                             link: '/componentsguide/mapcontrols/scaleline/'
-                        },{
+                        }, {
                             text: 'ol-zoom-control',
                             link: '/componentsguide/mapcontrols/zoom/'
-                        },{
+                        }, {
                             text: 'ol-zoomslider-control',
                             link: '/componentsguide/mapcontrols/zoomslider/'
-                        },{
+                        }, {
                             text: 'ol-zoomtoextent-control',
                             link: '/componentsguide/mapcontrols/zoomtoextent/'
                         }]
-                    }       
+                    }
                 ]
             }, ]
 
