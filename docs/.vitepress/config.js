@@ -142,6 +142,10 @@ module.exports = {
                                 text: 'ol-interaction-snap',
                                 link: '/componentsguide/interactions/snap/'
                             },
+                            {
+                                text: 'ol-interaction-transform',
+                                link: '/componentsguide/interactions/transform/'
+                            },
                       
                         ]
                     },
