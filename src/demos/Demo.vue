@@ -1,8 +1,4 @@
 <template>
-<button @click="()=> selectedXyzUrl = 'https://{a-c}.tile.openstreetmap.org/{z}/{x}/{y}.png'" style="height:70px">OPENSTREETMAP</button>
-<button @click="()=> selectedXyzUrl = 'https://mt1.google.com/vt/lyrs=s&x={x}&y={y}&z={z}'" style="height:70px">GOOGLE</button>
-<button @click="()=> selectedXyzUrl = 'https://c.tile.jawg.io/jawg-dark/{z}/{x}/{y}.png?access-token=87PWIbRaZAGNmYDjlYsLkeTVJpQeCfl2Y61mcHopxXqSdxXExoTLEv7dwqBwSWuJ'" style="height:70px">JAWG</button>
-Click clustered features for expand
 
 <input type="checkbox" id="checkbox" v-model="drawEnable">
 <label for="checkbox">Draw Enable</label>
@@ -17,6 +13,16 @@ Click clustered features for expand
 <ol-map ref="map" :loadTilesWhileAnimating="true" :loadTilesWhileInteracting="true" style="height:800px">
 
     <ol-view ref="view" :center="center" :rotation="rotation" :zoom="zoom" :projection="projection" />
+
+    <ol-swipe-control ref="swipeControl" v-if="layerList.length > 0" :layerList="layerList" />
+
+    <ol-tile-layer ref="osmLayer">
+        <ol-source-osm />
+    </ol-tile-layer>
+
+    <ol-tile-layer ref="jawgLayer">
+        <ol-source-xyz url="https://c.tile.jawg.io/jawg-dark/{z}/{x}/{y}.png?access-token=87PWIbRaZAGNmYDjlYsLkeTVJpQeCfl2Y61mcHopxXqSdxXExoTLEv7dwqBwSWuJ" />
+    </ol-tile-layer>
 
     <ol-fullscreen-control />
     <ol-mouseposition-control />
@@ -35,9 +41,6 @@ Click clustered features for expand
 
     <ol-context-menu :items="contextMenuItems" />
 
-    <ol-tile-layer>
-        <ol-source-xyz :url="selectedXyzUrl" />
-    </ol-tile-layer>
 
     <ol-interaction-clusterselect @select="featureSelected" :pointRadius="20">
         <ol-style>
@@ -128,7 +131,8 @@ Click clustered features for expand
 <script>
 import {
     ref,
-    inject
+    inject,
+    onMounted
 } from 'vue'
 
 import markerIcon from '@/assets/marker.png'
@@ -142,7 +146,7 @@ export default {
         const format = inject('ol-format');
 
         const geoJson = new format.GeoJSON();
-        const selectedXyzUrl = ref('https://c.tile.jawg.io/jawg-dark/{z}/{x}/{y}.png?access-token=87PWIbRaZAGNmYDjlYsLkeTVJpQeCfl2Y61mcHopxXqSdxXExoTLEv7dwqBwSWuJ')
+
 
         const selectConditions = inject('ol-selectconditions')
 
@@ -247,13 +251,24 @@ export default {
             console.log(event)
         }
 
+        const swipeControl = ref(null)
+        const jawgLayer = ref(null)
+        const osmLayer = ref(null)
+        const layerList = ref([])
+        onMounted(() => {
+
+            layerList.value.push(jawgLayer.value.tileLayer);
+            layerList.value.push(osmLayer.value.tileLayer);
+            console.log(layerList.value)
+
+        });
+
         return {
             center,
             projection,
             zoom,
             rotation,
             geoJson,
-            selectedXyzUrl,
             featureSelected,
             selectCondition,
             selectedCityName,
@@ -270,7 +285,11 @@ export default {
             modifystart,
             modifyend,
             drawEnable,
-            drawType
+            drawType,
+            layerList,
+            jawgLayer,
+            swipeControl,
+            osmLayer
 
         }
     },
