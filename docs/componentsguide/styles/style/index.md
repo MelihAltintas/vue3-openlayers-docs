@@ -2,7 +2,7 @@
 
 > A container for a collection of styles
 
-Use it inside ol-feature, ol-vector-layer or ol-interaction-select to give custom styles to vector features.
+Use it inside ol-feature, ol-vector-layer, ol-interaction-select, ol-interaction-draw, ol-interaction-modify to give custom styles to vector features.
 
 ## Usage
 
