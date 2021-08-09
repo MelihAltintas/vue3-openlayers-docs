@@ -1,5 +1,4 @@
 <template>
-
 <input type="checkbox" id="checkbox" v-model="drawEnable">
 <label for="checkbox">Draw Enable</label>
 
@@ -40,7 +39,6 @@
     <ol-zoomtoextent-control :extent="[23.906,42.812,46.934,34.597]" tipLabel="Fit to Turkey" />
 
     <ol-context-menu :items="contextMenuItems" />
-
 
     <ol-interaction-clusterselect @select="featureSelected" :pointRadius="20">
         <ol-style>
@@ -93,11 +91,30 @@
         </ol-style>
     </ol-vector-layer>
 
+    <ol-vector-layer :updateWhileAnimating="true" :updateWhileInteracting="true">
+        <ol-source-vector ref="vectorsource">
+
+            <ol-animation-drop :duration="2000" >
+                <ol-feature v-for="index in 20" :key="index">
+                    <ol-geom-point :coordinates="[getRandomInRange(24,45,3),getRandomInRange(35,41,3)]"></ol-geom-point>
+
+                    <ol-style>
+                        <ol-style-icon :src="starIcon" :scale="0.1"></ol-style-icon>
+                    </ol-style>
+                </ol-feature>
+            </ol-animation-drop>
+
+      
+        </ol-source-vector>
+
+    </ol-vector-layer>
+
     <ol-animated-clusterlayer :animationDuration="500" :distance="40">
 
         <ol-source-vector ref="vectorsource">
             <ol-feature v-for="index in 1000" :key="index">
                 <ol-geom-point :coordinates="[getRandomInRange(24,45,3),getRandomInRange(35,41,3)]"></ol-geom-point>
+
             </ol-feature>
         </ol-source-vector>
 
@@ -111,7 +128,7 @@
             </ol-style-circle>
 
             <ol-style-text>
-                <ol-style-fill color="#fff"></ol-style-fill>
+                <ol-style-fill color="white"></ol-style-fill>
             </ol-style-text>
         </ol-style>
 
@@ -136,6 +153,7 @@ import {
 } from 'vue'
 
 import markerIcon from '@/assets/marker.png'
+import starIcon from '@/assets/star.png'
 export default {
     setup() {
         const center = ref([34, 39.13])
@@ -146,7 +164,6 @@ export default {
         const format = inject('ol-format');
 
         const geoJson = new format.GeoJSON();
-
 
         const selectConditions = inject('ol-selectconditions')
 
@@ -289,12 +306,14 @@ export default {
             layerList,
             jawgLayer,
             swipeControl,
-            osmLayer
+            osmLayer,
+            starIcon
 
         }
     },
 }
 </script>
+
 
 <style>
 .overlay-content {
