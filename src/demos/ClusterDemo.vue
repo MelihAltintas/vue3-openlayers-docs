@@ -12,7 +12,7 @@
         <ol-source-cluster :distance="40">
 
             <ol-source-vector>
-                <ol-feature v-for="index in 1000" :key="index">
+                <ol-feature v-for="index in 300" :key="index">
                     <ol-geom-point :coordinates="[getRandomInRange(24,45,3),getRandomInRange(35,41,3)]"></ol-geom-point>
                 </ol-feature>
             </ol-source-vector>
