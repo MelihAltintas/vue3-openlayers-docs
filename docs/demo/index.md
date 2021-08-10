@@ -8,16 +8,6 @@ import Demo from "@demos/Demo.vue"
 
 ```html
 <template>
-<input type="checkbox" id="checkbox" v-model="drawEnable">
-<label for="checkbox">Draw Enable</label>
-
-<select id="type" v-model="drawType">
-    <option value="Point">Point</option>
-    <option value="LineString">LineString</option>
-    <option value="Polygon">Polygon</option>
-    <option value="Circle">Circle</option>
-</select>
-
 <ol-map ref="map" :loadTilesWhileAnimating="true" :loadTilesWhileInteracting="true" style="height:800px">
 
     <ol-view ref="view" :center="center" :rotation="rotation" :zoom="zoom" :projection="projection" />
@@ -29,12 +19,20 @@ import Demo from "@demos/Demo.vue"
     </ol-tile-layer>
 
     <ol-tile-layer ref="jawgLayer">
-        <ol-source-xyz url="https://c.tile.jawg.io/jawg-dark/{z}/{x}/{y}.png?access-token=87PWIbRaZAGNmYDjlYsLkeTVJpQeCfl2Y61mcHopxXqSdxXExoTLEv7dwqBwSWuJ" />
+        <ol-source-xyz crossOrigin='anonymous' url="https://c.tile.jawg.io/jawg-dark/{z}/{x}/{y}.png?access-token=87PWIbRaZAGNmYDjlYsLkeTVJpQeCfl2Y61mcHopxXqSdxXExoTLEv7dwqBwSWuJ" />
     </ol-tile-layer>
 
-    <ol-fullscreen-control />
-    <ol-mouseposition-control />
+    <ol-control-bar>
+        <ol-control-toggle html="<i class='fas fa-map-marker'></i>" className="edit" title="Point" :onToggle="(active)=>changeDrawType(active,'Point')" />
+        <ol-control-toggle html="<i class='fas fa-draw-polygon'></i>" className="edit" title="Polygon" :onToggle="(active)=>changeDrawType(active,'Polygon')" />
+        <ol-control-toggle html="<i class='fas fa-circle'></i>" className="edit" title="Circle" :onToggle="(active)=>changeDrawType(active,'Circle')" />
+        <ol-control-toggle html="<i class='fas fa-grip-lines'></i>" className="edit" title="LineString" :onToggle="(active)=>changeDrawType(active,'LineString')" />
 
+        <ol-control-printdialog />
+    </ol-control-bar>
+
+    <ol-mouseposition-control />
+    <ol-fullscreen-control />
     <ol-overviewmap-control>
         <ol-tile-layer>
             <ol-source-osm />
@@ -103,7 +101,7 @@ import Demo from "@demos/Demo.vue"
     <ol-vector-layer :updateWhileAnimating="true" :updateWhileInteracting="true">
         <ol-source-vector ref="vectorsource">
 
-            <ol-animation-drop :duration="2000" >
+            <ol-animation-drop :duration="2000">
                 <ol-feature v-for="index in 20" :key="index">
                     <ol-geom-point :coordinates="[getRandomInRange(24,45,3),getRandomInRange(35,41,3)]"></ol-geom-point>
 
@@ -113,7 +111,6 @@ import Demo from "@demos/Demo.vue"
                 </ol-feature>
             </ol-animation-drop>
 
-      
         </ol-source-vector>
 
     </ol-vector-layer>
@@ -157,7 +154,6 @@ import Demo from "@demos/Demo.vue"
 ```
 
 ```js
-
 import {
     ref,
     inject,
@@ -195,6 +191,11 @@ export default {
 
         const drawEnable = ref(false)
         const drawType = ref("Point")
+
+        const changeDrawType = (active, draw) => {
+            drawEnable.value = active
+            drawType.value = draw
+        }
 
         contextMenuItems.value = [{
                 text: 'Center map here',
@@ -319,10 +320,10 @@ export default {
             jawgLayer,
             swipeControl,
             osmLayer,
-            starIcon
+            starIcon,
+            changeDrawType
 
         }
     },
 }
-
 ```
