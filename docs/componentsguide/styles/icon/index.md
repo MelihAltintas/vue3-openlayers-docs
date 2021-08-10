@@ -4,6 +4,13 @@
 
 Use it inside ol-style to style points
 
+<script setup>
+import IconDemo from "@demos/IconDemo.vue"
+</script>
+
+<ClientOnly>
+<IconDemo /> 
+</ClientOnly>
 
 ## Usage
 
@@ -65,13 +72,7 @@ export default {
 }
 ```
 
-<script setup>
-import IconDemo from "@demos/IconDemo.vue"
-</script>
 
-<ClientOnly>
-<IconDemo /> 
-</ClientOnly>
 
 ## Properties
 

@@ -2,14 +2,15 @@
 
 > Interaction for modifying feature geometries. 
 
-
-
-## Usage
-
-
 <script setup>
 import SnapModifyDemo from "@demos/SnapModifyDemo.vue"
 </script>
+
+<ClientOnly>
+<SnapModifyDemo/>
+</ClientOnly>
+
+## Usage
 
 ```html
 <template>
@@ -168,9 +169,7 @@ export default {
 }
 ```
 
-<ClientOnly>
-<SnapModifyDemo/>
-</ClientOnly>
+
 
 ## Properties
 

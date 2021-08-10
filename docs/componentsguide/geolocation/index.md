@@ -6,6 +6,15 @@
 The [Geolocation API](https://www.w3.org/TR/geolocation-API/) is used to locate 
 a user's position. You can place it to the **default slot** of `ol-map` component.
 
+<script setup>
+import GeoLocationDemo from "@demos/GeoLocationDemo.vue"
+</script>
+
+<ClientOnly>
+<GeoLocationDemo />
+</ClientOnly>
+
+
 ```html
 <template>
 <ol-map :loadTilesWhileAnimating="true" :loadTilesWhileInteracting="true" style="height:400px" ref="map">
@@ -72,14 +81,8 @@ export default {
 }
 ```
 
-# Output
-<script setup>
-import GeoLocationDemo from "@demos/GeoLocationDemo.vue"
-</script>
 
-<ClientOnly>
-<GeoLocationDemo />
-</ClientOnly>
+
 
 
 

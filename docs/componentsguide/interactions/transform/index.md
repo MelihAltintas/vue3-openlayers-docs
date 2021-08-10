@@ -2,13 +2,15 @@
 
 > Interaction for transform feature geometries.
 
-
-## Usage
-
-
 <script setup>
 import TransformDemo from "@demos/TransformDemo.vue"
 </script>
+
+<ClientOnly>
+<TransformDemo/>
+</ClientOnly>
+
+## Usage
 
 ```html
 <template>
@@ -131,9 +133,7 @@ export default {
 }
 ```
 
-<ClientOnly>
-<TransformDemo/>
-</ClientOnly>
+
 
 ## Properties
 

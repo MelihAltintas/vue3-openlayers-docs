@@ -2,6 +2,15 @@
 
 Source layer ready to load OpenStreetMaps tiles
 
+
+<script setup>
+import MapDemo from "@demos/MapDemo.vue"
+</script>
+
+<ClientOnly>
+<MapDemo />
+</ClientOnly>
+
 ## Usage
 
 Loading a simple OSM base layer.
@@ -40,19 +49,6 @@ export default {
     },
 }
 ```
-
-# Output
-
-<script setup>
-import MapDemo from "@demos/MapDemo.vue"
-</script>
-
-<ClientOnly>
-<MapDemo />
-</ClientOnly>
-
-
-
 
 ## Properties
 

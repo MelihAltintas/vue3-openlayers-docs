@@ -6,6 +6,15 @@ This is the object to act upon to change the center, resolution, and rotation of
 
 A View has a projection. The projection determines the coordinate system of the center, and its units determine the units of the resolution (projection units per pixel). The default projection is Spherical Mercator (EPSG:3857).
 
+
+<script setup>
+import ViewDemo from "@demos/ViewDemo.vue"
+</script>
+
+<ClientOnly>
+<ViewDemo />
+</ClientOnly>
+
 ## Usage
 
 Example of simple map with view in EPSG:4326 projection.
@@ -79,15 +88,7 @@ export default {
 };
 ```
 
-# Output
 
-<script setup>
-import ViewDemo from "@demos/ViewDemo.vue"
-</script>
-
-<ClientOnly>
-<ViewDemo />
-</ClientOnly>
 
 ## Properties
 

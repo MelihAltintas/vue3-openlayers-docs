@@ -2,14 +2,16 @@
 
 > Interaction for selecting vector features
 
-
-
-## Usage
-
-
 <script setup>
 import SelectDemo from "@demos/SelectDemo.vue"
 </script>
+
+<ClientOnly>
+<SelectDemo/>
+</ClientOnly>
+
+## Usage
+
 
 ```html
 <template>
@@ -96,9 +98,7 @@ export default {
 }
 ```
 
-<ClientOnly>
-<SelectDemo/>
-</ClientOnly>
+
 
 ## Properties
 

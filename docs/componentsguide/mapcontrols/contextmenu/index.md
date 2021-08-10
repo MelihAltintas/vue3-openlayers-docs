@@ -2,6 +2,13 @@
 
 > A contextmenu extension for OpenLayers.
 
+<script setup>
+import ContextMenuDemo from "@demos/ContextMenuDemo.vue"
+</script>
+<ClientOnly>
+<ContextMenuDemo />
+</ClientOnly>
+
 ## Usage
 Add context menu to map
 
@@ -91,12 +98,7 @@ export default {
 }
 ```
 
-<script setup>
-import ContextMenuDemo from "@demos/ContextMenuDemo.vue"
-</script>
-<ClientOnly>
-<ContextMenuDemo />
-</ClientOnly>
+
 
 ## Properties
 

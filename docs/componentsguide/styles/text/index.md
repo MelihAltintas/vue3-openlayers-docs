@@ -2,6 +2,14 @@
 
 > Style the text of a shape
 
+<script setup>
+import TextDemo from "@demos/TextDemo.vue"
+</script>
+
+<ClientOnly>
+<TextDemo/>
+</ClientOnly>
+
 
 ## Usage
 Add text to shapes
@@ -62,13 +70,7 @@ export default {
 }
 ```
 
-<script setup>
-import TextDemo from "@demos/TextDemo.vue"
-</script>
 
-<ClientOnly>
-<TextDemo/>
-</ClientOnly>
 
 
 ## Properties

@@ -2,6 +2,14 @@
 
 ol-tile-layer can render images from sources that provide pre-rendered, tiled images in grids organized by zoom levels. It should be used together with tiled source components like ol-source-xyz, ol-source-wmts, ol-source-osm, ol-source-bingmaps
 
+<script setup>
+import TileLayerDemo from "@demos/TileLayerDemo.vue"
+</script>
+<ClientOnly>
+<TileLayerDemo />
+</ClientOnly>
+
+
 ## Usage
 
 Example below shows how to use ol-layer-tile component together with ol-source-wmts and with ol-source-osm.
@@ -56,14 +64,6 @@ export default {
 }
 ```
 
-# Output
-
-<script setup>
-import TileLayerDemo from "@demos/TileLayerDemo.vue"
-</script>
-<ClientOnly>
-<TileLayerDemo />
-</ClientOnly>
 
 ## Properties
 

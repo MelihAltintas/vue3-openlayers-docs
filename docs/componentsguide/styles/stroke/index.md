@@ -4,6 +4,13 @@
 
 Use it inside ol-style to style lines and polygons, inside ol-style-circle to style circles,inside ol-style-text to style texts.
 
+<script setup>
+import LineString from "@demos/LineString.vue"
+</script>
+<ClientOnly>
+<LineString /> 
+</ClientOnly>
+
 
 ## Usage
 
@@ -62,14 +69,6 @@ export default {
     },
 }
 ```
-
-<script setup>
-import LineString from "@demos/LineString.vue"
-</script>
-<ClientOnly>
-<LineString /> 
-</ClientOnly>
-
 
 
 ## Properties

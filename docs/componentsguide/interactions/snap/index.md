@@ -11,6 +11,11 @@
 import SnapModifyDemo from "@demos/SnapModifyDemo.vue"
 </script>
 
+
+<ClientOnly>
+<SnapModifyDemo/>
+</ClientOnly>
+
 ```html
 <template>
 <button @click="drawEnabled = !drawEnabled">Draw</button>
@@ -168,9 +173,6 @@ export default {
 }
 ```
 
-<ClientOnly>
-<SnapModifyDemo/>
-</ClientOnly>
 
 ## Properties
 

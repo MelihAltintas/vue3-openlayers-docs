@@ -2,6 +2,14 @@
 
 ol-geom-point can be used inside a ol-feature to draw a single points
 
+<script setup>
+import GeomPoint from "@demos/GeomPoint.vue"
+</script>
+
+<ClientOnly>
+<GeomPoint /> 
+</ClientOnly>
+
 ## Usage
 
 ```html
@@ -66,15 +74,9 @@ export default {
 }
 ```
 
-# Output
 
-<script setup>
-import GeomPoint from "@demos/GeomPoint.vue"
-</script>
 
-<ClientOnly>
-<GeomPoint /> 
-</ClientOnly>
+
 ## Properties
 
 

@@ -2,6 +2,14 @@
 
 ol-image-layer components can render any server-rendered image, it is a container for raster source, like ol-source-image-static
 
+<script setup>
+import ImageLayerDemo from "@demos/ImageLayerDemo.vue"
+</script>
+
+<ClientOnly>
+<ImageLayerDemo />
+</ClientOnly>
+
 ## Usage
 
 Example below shows how to use ol-image-layer component together with ol-source-image-static to render custom image on the map. The map view is configured with a custom projection that translates image coordinates directly into map coordinates.
@@ -56,15 +64,7 @@ export default {
 }
 ```
 
-# Output
 
-<script setup>
-import ImageLayerDemo from "@demos/ImageLayerDemo.vue"
-</script>
-
-<ClientOnly>
-<ImageLayerDemo />
-</ClientOnly>
 
 ## Properties
 

@@ -2,7 +2,13 @@
 
 ol-vector-layer can render vector from various backend services. It should be used with together with ol-source-vector component.
 
+<script setup>
+import VectorSourceDemo1 from "@demos/VectorSourceDemo1.vue"
+</script>
 
+<ClientOnly>
+<VectorSourceDemo1 /> 
+</ClientOnly>
 
 ## Usage
 
@@ -62,15 +68,8 @@ export default {
 }
 ```
 
-# Output
 
-<script setup>
-import VectorSourceDemo1 from "@demos/VectorSourceDemo1.vue"
-</script>
 
-<ClientOnly>
-<VectorSourceDemo1 /> 
-</ClientOnly>
 
 ## Properties
 

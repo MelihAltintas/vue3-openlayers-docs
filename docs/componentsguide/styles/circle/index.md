@@ -4,13 +4,19 @@
 
 Use it inside ol-style to style points as circles.
 
+<script setup>
+import StyleDemo from "@demos/StyleDemo.vue"
+</script>
+
+<ClientOnly>
+<StyleDemo/>
+</ClientOnly>
+
 ## Usage
 
 Styling a feature inside a vector layer.
 
-<script setup>
-import StyleDemo from "@demos/StyleDemo.vue"
-</script>
+
 
 ```html
 <template>
@@ -63,9 +69,7 @@ export default {
 }
 ```
 
-<ClientOnly>
-<StyleDemo/>
-</ClientOnly>
+
 
 ## Properties
 

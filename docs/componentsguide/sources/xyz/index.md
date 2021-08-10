@@ -4,6 +4,14 @@ Layer source for tile data with URLs in a set XYZ format that are defined in a U
 
 ol-source-xyz allows you to use any tiled source from OpenStreetMaps to google maps.
 
+<script setup>
+import XYZSourceDemo from "@demos/XYZSourceDemo.vue"
+</script>
+
+<ClientOnly>
+<XYZSourceDemo />
+</ClientOnly>
+
 ## Usage
 
 Example of ol-source-xyz loading OSM tiles (Note that if you need an OSM layer you're better off using ol-source-osm, this is for demonstration purposes only).
@@ -50,18 +58,6 @@ export default {
     },
 }
 ```
-
-# Output
-
-<script setup>
-import XYZSourceDemo from "@demos/XYZSourceDemo.vue"
-</script>
-
-<ClientOnly>
-<XYZSourceDemo />
-</ClientOnly>
-
-
 
 
 ## Properties

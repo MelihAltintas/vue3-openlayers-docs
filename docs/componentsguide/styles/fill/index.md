@@ -4,6 +4,13 @@
 
 Use it inside ol-style, ol-style-circle, ol-style-text along with ol-style-stroke to style polygons and other shapes with area like circles.
 
+<script setup>
+import MultiPoint from "@demos/MultiPoint.vue"
+</script>
+<ClientOnly>
+<MultiPoint /> 
+</ClientOnly>
+
 ## Usage
 
 Styling a feature
@@ -66,15 +73,6 @@ export default {
     },
 }
 ```
-
-<script setup>
-import MultiPoint from "@demos/MultiPoint.vue"
-</script>
-<ClientOnly>
-<MultiPoint /> 
-</ClientOnly>
-
-
 
 ## Properties
 

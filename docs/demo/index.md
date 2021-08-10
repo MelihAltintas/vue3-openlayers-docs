@@ -57,7 +57,7 @@ import Demo from "@demos/Demo.vue"
         </ol-style>
     </ol-interaction-clusterselect>
 
-    <ol-interaction-select @select="featureSelected" :condition="selectCondition" :filter="selectInteactionFilter">
+    <ol-interaction-select @select="featureSelected" :condition="selectCondition" :filter="selectInteactionFilter" v-if="!drawEnable">
         <ol-style>
             <ol-style-stroke color="green" :width="10"></ol-style-stroke>
             <ol-style-fill color="rgba(255,255,255,0.5)"></ol-style-fill>
@@ -120,7 +120,7 @@ import Demo from "@demos/Demo.vue"
     <ol-animated-clusterlayer :animationDuration="500" :distance="40">
 
         <ol-source-vector ref="vectorsource">
-            <ol-feature v-for="index in 1000" :key="index">
+            <ol-feature v-for="index in 500" :key="index">
                 <ol-geom-point :coordinates="[getRandomInRange(24,45,3),getRandomInRange(35,41,3)]"></ol-geom-point>
 
             </ol-feature>
@@ -142,7 +142,7 @@ import Demo from "@demos/Demo.vue"
 
     </ol-animated-clusterlayer>
 
-    <ol-overlay :position="selectedCityPosition" v-if="selectedCityName !=''">
+    <ol-overlay :position="selectedCityPosition" v-if="selectedCityName !='' && !drawEnable">
         <template v-slot="slotProps">
             <div class="overlay-content">
                 {{selectedCityName}} {{slotProps}}
@@ -153,6 +153,7 @@ import Demo from "@demos/Demo.vue"
 </ol-map>
 
 </template>
+
 
 ```
 

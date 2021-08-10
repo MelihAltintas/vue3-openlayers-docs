@@ -7,6 +7,10 @@ import ClusterDemo from "@demos/ClusterDemo.vue"
 
 </script>
 
+<ClientOnly>
+<ClusterDemo />
+</ClientOnly>
+
 ## Usage
 This example shows how to do clustering on 1000 point features.
 
@@ -92,11 +96,6 @@ export default {
     },
 }
 ```
-
-<ClientOnly>
-<ClusterDemo />
-</ClientOnly>
-
 
 
 ## Properties

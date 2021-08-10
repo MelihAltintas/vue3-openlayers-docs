@@ -2,6 +2,14 @@
 
 Layer source for tile data from WMTS servers.
 
+<script setup>
+import TileLayerDemo from "@demos/TileLayerDemo.vue"
+</script>
+
+<ClientOnly>
+<TileLayerDemo />
+</ClientOnly>
+
 ## Usage
 
 Example below shows how to use ol-layer-tile component together with ol-source-wmts and with ol-source-osm.
@@ -56,15 +64,6 @@ export default {
 }
 ```
 
-# Output
-
-<script setup>
-import TileLayerDemo from "@demos/TileLayerDemo.vue"
-</script>
-
-<ClientOnly>
-<TileLayerDemo />
-</ClientOnly>
 
 ## Properties
 

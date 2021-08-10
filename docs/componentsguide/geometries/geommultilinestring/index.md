@@ -2,6 +2,13 @@
 
 ol-geom-multi-line-string can be used inside a ol-feature to draw multiple lines on the map.
 
+<script setup>
+import MultiLineString from "@demos/MultiLineString.vue"
+</script>
+<ClientOnly>
+<MultiLineString /> 
+</ClientOnly>
+
 ## Usage
 
 ```html
@@ -60,14 +67,9 @@ export default {
 
 ```
 
-# Output
 
-<script setup>
-import MultiLineString from "@demos/MultiLineString.vue"
-</script>
-<ClientOnly>
-<MultiLineString /> 
-</ClientOnly>
+
+
 ## Properties
 
 

@@ -6,6 +6,14 @@ This is the main container for all other Vue3 OpenLayers components and has one 
 slot to place them all. Usually you will use it together with `ol-view`
 component to setup `zoom`, `center`, `projection` and other view related propeties for the map.
 
+<script setup>
+import MapDemo from "@demos/MapDemo.vue"
+</script>
+
+<ClientOnly>
+<MapDemo />
+</ClientOnly>
+
 ## Usage
 Example of a simple map.  
 See also documentation of `ol-view` component.
@@ -43,14 +51,8 @@ export default {
     },
 }
 ```
-# Output
-<script setup>
-import MapDemo from "@demos/MapDemo.vue"
-</script>
 
-<ClientOnly>
-<MapDemo />
-</ClientOnly>
+
 
 ## Properties
 
