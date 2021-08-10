@@ -1,5 +1,5 @@
 import DefaultTheme from 'vitepress/theme'
-import './all.css'
+
 import './theme.css'
 
 import 'vue3-openlayers/dist/vue3-openlayers.css'
