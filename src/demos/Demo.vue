@@ -320,9 +320,6 @@ export default {
 
 <style>
 
-@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css");
-
-
 .overlay-content {
     background: red !important;
     color: white;
