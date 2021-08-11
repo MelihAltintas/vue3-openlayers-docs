@@ -2,7 +2,10 @@ module.exports = {
     title: 'Vue3 OpenLayers',
     description: 'Vue3 OpenLayers',
     head: [
-        ['link', {rel: "stylesheet",href: 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css'}]
+        ['link', {
+            rel: "stylesheet",
+            href: 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css'
+        }]
     ],
     themeConfig: {
         repo: 'MelihAltintas/vue3-openlayers',
@@ -149,7 +152,33 @@ module.exports = {
                                 text: 'ol-interaction-transform',
                                 link: '/componentsguide/interactions/transform/'
                             },
-                      
+
+                        ]
+                    }, {
+                        text: 'animations',
+                        children: [{
+                                text: 'ol-animation-drop',
+                                link: '/componentsguide/animations/drop/'
+                            },
+                            {
+                                text: 'ol-animation-shake',
+                                link: '/componentsguide/animations/shake/'
+                            }, {
+                                text: 'ol-animation-slide',
+                                link: '/componentsguide/animations/slide/'
+                            },
+                            {
+                                text: 'ol-animation-fade',
+                                link: '/componentsguide/animations/fade/'
+                            },
+                            {
+                                text: 'ol-animation-teleport',
+                                link: '/componentsguide/animations/teleport/'
+                            }, {
+                                text: 'ol-animation-zoom',
+                                link: '/componentsguide/animations/zoom/'
+                            },
+
                         ]
                     },
                     {
