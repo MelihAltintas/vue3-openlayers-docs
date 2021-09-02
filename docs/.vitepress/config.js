@@ -5,6 +5,14 @@ module.exports = {
         ['link', {
             rel: "stylesheet",
             href: 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css'
+        }],
+        ['meta', {
+            name: "description",
+            content: 'vue3-openlayers is components library that brings the powerful OpenLayers API to the Vue3 reactive world. It can display maps with tiled, raster or vector layers loaded from different sources'
+        }],
+        ['meta', {
+            name: "keywords",
+            content: 'vue map openlayers vueopenlayers vue3openlayers vuelayers vue3map'
         }]
     ],
     themeConfig: {
