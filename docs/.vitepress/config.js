@@ -76,6 +76,10 @@ module.exports = {
                                 link: '/componentsguide/sources/bing/'
                             },
                             {
+                                text: 'ol-source-tianditu',
+                                link: '/componentsguide/sources/tianditu/'
+                            },
+                            {
                                 text: 'ol-source-wmts',
                                 link: '/componentsguide/sources/wmts/'
                             },
