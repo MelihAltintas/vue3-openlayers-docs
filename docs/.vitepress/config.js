@@ -66,6 +66,10 @@ module.exports = {
                                 link: '/componentsguide/sources/imagestatic/'
                             },
                             {
+                                text: 'ol-source-image-wms',
+                                link: '/componentsguide/sources/imagewms/'
+                            },
+                            {
                                 text: 'ol-source-osm',
                                 link: '/componentsguide/sources/osm/'
                             }, {
