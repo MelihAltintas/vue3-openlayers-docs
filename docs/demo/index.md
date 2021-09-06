@@ -20,7 +20,7 @@ import Demo from "@demos/Demo.vue"
         <ol-source-osm />
     </ol-tile-layer>
 
-    <ol-tile-layer ref="jawgLayer" title ="JAWG">
+    <ol-tile-layer ref="jawgLayer" title="JAWG">
         <ol-source-xyz crossOrigin='anonymous' url="https://c.tile.jawg.io/jawg-dark/{z}/{x}/{y}.png?access-token=87PWIbRaZAGNmYDjlYsLkeTVJpQeCfl2Y61mcHopxXqSdxXExoTLEv7dwqBwSWuJ" />
     </ol-tile-layer>
 
@@ -50,7 +50,7 @@ import Demo from "@demos/Demo.vue"
     <ol-zoomtoextent-control :extent="[23.906,42.812,46.934,34.597]" tipLabel="Fit to Turkey" />
 
     <ol-context-menu :items="contextMenuItems" />
-
+    <ol-interaction-dragrotatezoom />
     <ol-interaction-clusterselect @select="featureSelected" :pointRadius="20">
         <ol-style>
             <ol-style-stroke color="green" :width="5"></ol-style-stroke>
@@ -66,10 +66,9 @@ import Demo from "@demos/Demo.vue"
             <ol-style-icon :src="markerIcon" :scale="0.05"></ol-style-icon>
         </ol-style>
     </ol-interaction-select>
- 
 
-    <ol-vector-layer title="AIRPORTS" :preview="require('@/assets/tr.png')">
-        <ol-source-vector ref="cities" url="https://raw.githubusercontent.com/alpers/Turkey-Maps-GeoJSON/master/tr-cities-airports.json" :format="geoJson" :projection="projection" >
+    <ol-vector-layer title="AIRPORTS" preview="https://raw.githubusercontent.com/MelihAltintas/vue3-openlayers/main/src/assets/tr.png">
+        <ol-source-vector ref="cities" url="https://raw.githubusercontent.com/alpers/Turkey-Maps-GeoJSON/master/tr-cities-airports.json" :format="geoJson" :projection="projection">
 
             <ol-interaction-modify v-if="drawEnable" @modifyend="modifyend" @modifystart="modifystart">
 
@@ -92,11 +91,11 @@ import Demo from "@demos/Demo.vue"
         </ol-style>
     </ol-vector-layer>
 
-    <ol-vector-layer :updateWhileAnimating="true" :updateWhileInteracting="true" title="STAR" :preview="require('@/assets/star.png')">
+    <ol-vector-layer :updateWhileAnimating="true" :updateWhileInteracting="true" title="STAR" preview="https://raw.githubusercontent.com/MelihAltintas/vue3-openlayers/main/src/assets/star.png">
         <ol-source-vector ref="vectorsource">
 
             <ol-animation-shake :duration="2000" :repeat="5">
-                <ol-feature v-for="index in 20" :key="index">
+                <ol-feature v-for="index in 20" :key="index" :properties="{'id':index}">
                     <ol-geom-point :coordinates="[getRandomInRange(24,45,3),getRandomInRange(35,41,3)]"></ol-geom-point>
 
                     <ol-style>
@@ -109,7 +108,7 @@ import Demo from "@demos/Demo.vue"
 
     </ol-vector-layer>
 
-    <ol-animated-clusterlayer :animationDuration="500" :distance="40" title="CLUSTER" :preview="require('@/assets/cluster.png')">
+    <ol-animated-clusterlayer :animationDuration="500" :distance="40" title="CLUSTER" preview="https://raw.githubusercontent.com/MelihAltintas/vue3-openlayers/main/src/assets/cluster.png">
 
         <ol-source-vector ref="vectorsource">
             <ol-feature v-for="index in 500" :key="index">
@@ -147,7 +146,7 @@ import Demo from "@demos/Demo.vue"
             <ol-feature ref="animationPath">
                 <ol-geom-line-string :coordinates="path"></ol-geom-line-string>
                 <ol-style>
-                    <ol-style-stroke color="red" width="7"></ol-style-stroke>
+                    <ol-style-stroke color="red" :width="7"></ol-style-stroke>
                 </ol-style>
             </ol-feature>
             <ol-animation-path v-if="animationPath" :path="animationPath.feature" :duration="4000" :repeat="10">
@@ -168,9 +167,7 @@ import Demo from "@demos/Demo.vue"
     </ol-vector-layer>
 
 </ol-map>
-
 </template>
-
 
 ```
 
@@ -213,7 +210,6 @@ export default {
         const drawEnable = ref(false)
         const drawType = ref("Point")
 
-
         const changeDrawType = (active, draw) => {
             drawEnable.value = active
             drawType.value = draw
@@ -244,7 +240,6 @@ export default {
         ]
 
         const featureSelected = (event) => {
-
             if (event.selected.length == 1) {
 
                 selectedCityPosition.value = extent.getCenter(event.selected[0].getGeometry().extent_)
@@ -303,19 +298,15 @@ export default {
             console.log(event)
         }
 
+        const videoStopped = (event) => {
+            console.log(event)
+        }
+
         const swipeControl = ref(null)
         const jawgLayer = ref(null)
         const osmLayer = ref(null)
         const layerList = ref([])
-        onMounted(() => {
-
-            layerList.value.push(jawgLayer.value.tileLayer);
-            layerList.value.push(osmLayer.value.tileLayer);
-            console.log(layerList.value)
-
-        });
-
-          const path = ref([
+        const path = ref([
             [
                 25.6064453125,
                 44.73302734375001
@@ -340,6 +331,13 @@ export default {
         ])
         const animationPath = ref(null);
 
+        onMounted(() => {
+
+            layerList.value.push(jawgLayer.value.tileLayer);
+            layerList.value.push(osmLayer.value.tileLayer);
+            console.log(layerList.value)
+            console.log(animationPath.value)
+        });
 
         return {
             center,
@@ -362,6 +360,7 @@ export default {
             drawend,
             modifystart,
             modifyend,
+            videoStopped,
             drawEnable,
             drawType,
             layerList,
@@ -372,7 +371,6 @@ export default {
             changeDrawType,
             path,
             animationPath
-
         }
     },
 }
