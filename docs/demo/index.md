@@ -145,9 +145,7 @@ import Demo from "@demos/Demo.vue"
         <ol-source-vector>
             <ol-feature ref="animationPath">
                 <ol-geom-line-string :coordinates="path"></ol-geom-line-string>
-                <ol-style>
-                    <ol-style-stroke color="red" :width="7"></ol-style-stroke>
-                </ol-style>
+                <ol-style-flowline color="red" color2="yellow" :width="10" :width2="10" :arrow="1"  />
             </ol-feature>
             <ol-animation-path v-if="animationPath" :path="animationPath.feature" :duration="4000" :repeat="10">
 
