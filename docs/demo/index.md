@@ -16,6 +16,10 @@ import Demo from "@demos/Demo.vue"
 
     <ol-layerswitcherimage-control />
 
+    <ol-zone-control :zones="zones" :projection="projection" :layer="jawgLayer.tileLayer" v-if="jawgLayer != null">
+
+    </ol-zone-control>
+
     <ol-tile-layer ref="osmLayer" title="OSM">
         <ol-source-osm />
     </ol-tile-layer>
@@ -337,6 +341,19 @@ export default {
             console.log(animationPath.value)
         });
 
+        const zones = [{
+                title: "Turkey",
+                extent: [17.952, 46.241, 52.449, 31.222]
+            },
+            {
+                title: "Cyprus",
+                extent: [31.2836, 36.1623, 35.5957, 34.1823]
+            }, {
+                title: "Brazil",
+                extent: [-120.32, 22.76, 17.67, -47.52]
+            }
+        ]
+
         return {
             center,
             projection,
@@ -368,7 +385,8 @@ export default {
             starIcon,
             changeDrawType,
             path,
-            animationPath
+            animationPath,
+            zones
         }
     },
 }
