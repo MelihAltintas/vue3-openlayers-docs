@@ -56,6 +56,18 @@ module.exports = {
                             {
                                 text: 'ol-vector-layer',
                                 link: '/componentsguide/layers/vectorlayer/'
+                            },
+                            {
+                                text: 'ol-animated-clusterlayer',
+                                link: '/componentsguide/layers/animatedclusterlayer/'
+                            },
+                            {
+                                text: 'ol-webglpoints-layer',
+                                link: '/componentsguide/layers/webglpointslayer/'
+                            },
+                            {
+                                text: 'ol-webgl-tile-layer',
+                                link: '/componentsguide/layers/webgltilelayer/'
                             }
                         ]
                     },
