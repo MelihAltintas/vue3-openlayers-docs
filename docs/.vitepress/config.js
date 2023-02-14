@@ -50,6 +50,10 @@ module.exports = {
                                 link: '/componentsguide/layers/tilelayer/'
                             },
                             {
+                              text: 'ol-heatmap-layer',
+                              link: '/componentsguide/layers/heatmaplayer/'
+                          },
+                            {
                                 text: 'ol-image-layer',
                                 link: '/componentsguide/layers/imagelayer/'
                             },
