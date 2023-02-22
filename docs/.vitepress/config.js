@@ -246,7 +246,7 @@ module.exports = {
                             link: '/componentsguide/mapcontrols/zoomtoextent/'
                         }, {
                             text: 'ol-swipe-control',
-                            link: '/componentsguide/mapcontrols/swip/'
+                            link: '/componentsguide/mapcontrols/swipe/'
                         }]
                     }
                 ]

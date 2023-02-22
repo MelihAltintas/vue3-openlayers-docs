@@ -1,18 +1,3 @@
-# ol-swipe-control
-
-> A Swipe control for OpenLayers.
-
-<script setup>
-import SwipeControlDemo from "@demos/SwipeControlDemo.vue"
-</script>
-<ClientOnly>
-  <SwipeControlDemo />
-</ClientOnly>
-
-## Usage
-Add context menu to map
-
-```html
 <template>
   <ol-map :loadTilesWhileAnimating="true" :loadTilesWhileInteracting="true" style="height:400px" ref="map">
 
@@ -30,9 +15,8 @@ Add context menu to map
 
   </ol-map>
 </template>
-```
 
-```js
+<script>
 import { ref, onMounted } from 'vue'
 
 export default {
@@ -64,28 +48,4 @@ export default {
     }
   }
 }
-```
-
-
-## Properties
-
-# layerList
-
-- **Type**: `Array`
-
-
-
-# className
-
-- **Type**: `String`
-
-
-# position
-
-- **Type**: `Number`
-- **Default**: `0.5`
-
-# orientation
-
-- **Type**: `String`
-- **Default**: `vertical`
+</script>
