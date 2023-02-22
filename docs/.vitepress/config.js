@@ -29,8 +29,8 @@ module.exports = {
                 link: '/demo/'
             }, {
                 text: 'Components',
-                collapsable: false,
-                children: [{
+                collapsed: false,
+                items: [{
                         text: 'ol-map',
                         link: '/componentsguide/map/'
                     }, {
@@ -45,7 +45,7 @@ module.exports = {
                     },
                     {
                         text: 'Layers',
-                        children: [{
+                        items: [{
                                 text: 'ol-tile-layer',
                                 link: '/componentsguide/layers/tilelayer/'
                             },
@@ -73,7 +73,7 @@ module.exports = {
                     },
                     {
                         text: 'Sources',
-                        children: [{
+                        items: [{
                                 text: 'ol-source-image-static',
                                 link: '/componentsguide/sources/imagestatic/'
                             },
@@ -111,7 +111,7 @@ module.exports = {
                     },
                     {
                         text: 'Geometries',
-                        children: [{
+                        items: [{
                                 text: 'ol-geom-point',
                                 link: '/componentsguide/geometries/geompoint/'
                             },
@@ -136,7 +136,7 @@ module.exports = {
                         ]
                     }, {
                         text: 'Styles',
-                        children: [{
+                        items: [{
                                 text: 'ol-style',
                                 link: '/componentsguide/styles/style/'
                             },
@@ -161,7 +161,7 @@ module.exports = {
                         ]
                     }, {
                         text: 'Interactions',
-                        children: [{
+                        items: [{
                                 text: 'ol-interaction-select',
                                 link: '/componentsguide/interactions/select/'
                             },
@@ -184,7 +184,7 @@ module.exports = {
                         ]
                     }, {
                         text: 'animations',
-                        children: [{
+                        items: [{
                                 text: 'ol-animation-drop',
                                 link: '/componentsguide/animations/drop/'
                             },
@@ -211,7 +211,7 @@ module.exports = {
                     },
                     {
                         text: 'Map Controls',
-                        children: [{
+                        items: [{
                             text: 'demo',
                             link: '/componentsguide/mapcontrols/'
                         }, {
